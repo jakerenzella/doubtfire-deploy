@@ -9,6 +9,9 @@ services:
       - doubtfire-base.env
     volumes:
       - ./student-work:/student-work
+    deploy:
+      restart_policy:
+        condition: any
   pdfgen:
     container_name: doubtfire-pdfgen
     image: lmsdoubtfire/pdfgen:development
@@ -51,4 +54,4 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: secure_credentials
       RABBITMQ_DEFAULT_PASS: secure_credentials
-    
+
